@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Login</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            width: 380px;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #error {
+            color: red;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <h1>Employee Login</h1>
+
+    <p class="subtitle">
+        Login to view your employee details
+    </p>
+
+    <form onsubmit="login(event)">
+
+        <label for="username">Employee Name</label>
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Enter employee name"
+            required
+        >
+
+        <label for="password">Password</label>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter password"
+            required
+        >
+
+        <button type="submit">
+            Login
+        </button>
+
+        <p id="error"></p>
+
+    </form>
+
+</div>
+
+<script>
+
+function login(event) {
+
+    event.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+
+    // Sample employee credentials
+    const employeeName = "John Doe";
+    const employeePassword = "12345";
+
+    if (username.toLowerCase() === employeeName.toLowerCase()
+        && password === employeePassword) {
+
+        // Store login information
+        localStorage.setItem("employeeName", employeeName);
+
+        // Redirect to employee details
+        window.location.href = "employee.html";
+
+    } else {
+
+        document.getElementById("error").innerText =
+            "Invalid employee name or password.";
+
+    }
+}
+
+</script>
+
+</body>
+</html>

@@ -1,203 +1,993 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dayflow - HRMS</title>
+    <title>Dayflow - Human Resource Management System</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
+    <!-- ================================================= -->
+    <!-- AUTHENTICATION -->
+    <!-- ================================================= -->
 
-        <!-- LEFT SIDE -->
-        <div class="welcome-section">
+    <div id="authSection">
 
-            <h1>Dayflow</h1>
+        <div class="auth-container">
 
-            <p class="tagline">
-                Every workday, perfectly aligned.
-            </p>
+            <!-- LEFT SIDE -->
 
-            <p class="description">
-                A simple Human Resource Management System
-                for employees and HR officers.
-            </p>
+            <div class="welcome-section">
 
-        </div>
+                <h1>Dayflow</h1>
 
-
-        <!-- RIGHT SIDE -->
-        <div class="auth-section">
-
-            <!-- LOGIN -->
-            <div id="loginBox" class="auth-box">
-
-                <h2>Welcome Back</h2>
-
-                <p class="subtitle">
-                    Sign in to your Dayflow account
+                <p class="tagline">
+                    Every workday, perfectly aligned.
                 </p>
 
-                <form id="loginForm">
-
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        id="loginEmail"
-                        placeholder="Enter your email"
-                        required
-                    >
-
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        id="loginPassword"
-                        placeholder="Enter your password"
-                        required
-                    >
-
-                    <p id="loginError" class="error"></p>
-
-                    <button type="submit">
-                        Sign In
-                    </button>
-
-                </form>
-
-                <p class="switch-text">
-                    Don't have an account?
-                    <span onclick="showSignup()">Sign Up</span>
+                <p class="description">
+                    A simple Human Resource Management System
+                    for employees and HR officers.
                 </p>
 
             </div>
 
 
-            <!-- SIGN UP -->
-            <div id="signupBox" class="auth-box hidden">
+            <!-- RIGHT SIDE -->
 
-                <h2>Create Account</h2>
+            <div class="auth-section">
 
-                <p class="subtitle">
-                    Register for Dayflow
-                </p>
 
-                <form id="signupForm">
+                <!-- ================= SIGN IN ================= -->
 
-                    <label>Employee ID</label>
-                    <input
-                        type="text"
-                        id="employeeId"
-                        placeholder="Enter Employee ID"
-                        required
-                    >
+                <div id="loginBox" class="auth-box">
 
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        id="signupEmail"
-                        placeholder="Enter email"
-                        required
-                    >
+                    <h2>Welcome Back</h2>
 
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        id="signupPassword"
-                        placeholder="Minimum 8 characters"
-                        required
-                    >
-
-                    <label>Role</label>
-
-                    <select id="role" required>
-
-                        <option value="">
-                            Select Role
-                        </option>
-
-                        <option value="Employee">
-                            Employee
-                        </option>
-
-                        <option value="HR">
-                            HR Officer
-                        </option>
-
-                    </select>
-
-                    <p class="password-rule">
-                        Password must contain at least 8 characters,
-                        one uppercase letter and one number.
+                    <p class="subtitle">
+                        Sign in to your Dayflow account
                     </p>
 
-                    <p id="signupError" class="error"></p>
 
-                    <button type="submit">
-                        Sign Up
-                    </button>
+                    <form id="loginForm">
 
-                </form>
+                        <label for="loginEmail">
+                            Email
+                        </label>
 
-                <p class="switch-text">
-                    Already have an account?
-                    <span onclick="showLogin()">Sign In</span>
-                </p>
-
-            </div>
-
-
-            <!-- VERIFICATION -->
-            <div id="verificationBox" class="auth-box hidden">
-
-                <h2>Verify Your Email</h2>
-
-                <p class="subtitle">
-                    We've sent a verification link to
-                </p>
-
-                <p id="verificationEmail" class="email-display"></p>
-
-                <p>
-                    Please verify your email before signing in.
-                </p>
-
-                <button onclick="verifyEmail()">
-                    Verify Email
-                </button>
-
-            </div>
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="Enter your email"
+                            required
+                        >
 
 
-            <!-- DASHBOARD -->
-            <div id="dashboardBox" class="auth-box hidden">
+                        <label for="loginPassword">
+                            Password
+                        </label>
 
-                <h2 id="dashboardTitle">
-                    Dashboard
-                </h2>
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            required
+                        >
 
-                <p id="dashboardMessage"></p>
 
-                <div class="dashboard-card">
+                        <p id="loginError" class="error"></p>
 
-                    <h3>Authentication Successful</h3>
 
-                    <p>
-                        You have successfully signed in to Dayflow.
+                        <button type="submit">
+                            Sign In
+                        </button>
+
+                    </form>
+
+
+                    <p class="switch-text">
+
+                        Don't have an account?
+
+                        <span onclick="showSignup()">
+                            Sign Up
+                        </span>
+
                     </p>
-
-                    <p id="userDetails"></p>
 
                 </div>
 
-                <button onclick="logout()">
-                    Logout
-                </button>
+
+                <!-- ================= SIGN UP ================= -->
+
+                <div id="signupBox" class="auth-box hidden">
+
+                    <h2>Create Account</h2>
+
+                    <p class="subtitle">
+                        Register for Dayflow
+                    </p>
+
+
+                    <form id="signupForm">
+
+                        <label for="employeeId">
+                            Employee ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="employeeId"
+                            placeholder="Enter Employee ID"
+                            required
+                        >
+
+
+                        <label for="signupEmail">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="signupEmail"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+
+                        <label for="signupPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="signupPassword"
+                            placeholder="Minimum 8 characters"
+                            required
+                        >
+
+
+                        <label for="role">
+                            Role
+                        </label>
+
+                        <select id="role" required>
+
+                            <option value="">
+                                Select Role
+                            </option>
+
+                            <option value="Employee">
+                                Employee
+                            </option>
+
+                            <option value="HR">
+                                HR Officer
+                            </option>
+
+                        </select>
+
+
+                        <p class="password-rule">
+
+                            Password must contain at least
+                            8 characters, one uppercase letter,
+                            one lowercase letter and one number.
+
+                        </p>
+
+
+                        <p id="signupError" class="error"></p>
+
+
+                        <button type="submit">
+                            Sign Up
+                        </button>
+
+                    </form>
+
+
+                    <p class="switch-text">
+
+                        Already have an account?
+
+                        <span onclick="showLogin()">
+                            Sign In
+                        </span>
+
+                    </p>
+
+                </div>
+
+
+                <!-- ================= EMAIL VERIFICATION ================= -->
+
+                <div id="verificationBox"
+                     class="auth-box hidden">
+
+                    <h2>Verify Your Email</h2>
+
+                    <p class="subtitle">
+                        Your account has been created.
+                    </p>
+
+                    <p>
+                        Verification is required before you
+                        can sign in.
+                    </p>
+
+
+                    <p id="verificationEmail"
+                       class="email-display">
+                    </p>
+
+
+                    <button onclick="verifyEmail()">
+                        Verify Email
+                    </button>
+
+
+                    <p class="verification-note">
+                        Demo mode: clicking the button simulates
+                        email verification.
+                    </p>
+
+                </div>
 
             </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- DASHBOARD -->
+    <!-- ================================================= -->
+
+    <div id="dashboardSection" class="hidden">
+
+        <div class="app">
+
+
+            <!-- ================= SIDEBAR ================= -->
+
+            <aside class="sidebar">
+
+                <div class="logo">
+
+                    <h1>Dayflow</h1>
+
+                    <p>
+                        Every workday, perfectly aligned.
+                    </p>
+
+                </div>
+
+
+                <nav>
+
+                    <button
+                        class="nav-item active"
+                        onclick="showDashboard()">
+
+                        🏠 Dashboard
+
+                    </button>
+
+
+                    <button
+                        class="nav-item employee-only"
+                        onclick="showProfile()">
+
+                        👤 Profile
+
+                    </button>
+
+
+                    <button
+                        class="nav-item employee-only"
+                        onclick="showAttendance()">
+
+                        📅 Attendance
+
+                    </button>
+
+
+                    <button
+                        class="nav-item employee-only"
+                        onclick="showLeaveRequests()">
+
+                        📝 Leave Requests
+
+                    </button>
+
+
+                    <button
+                        class="nav-item hr-only"
+                        onclick="showEmployees()">
+
+                        👥 Employees
+
+                    </button>
+
+
+                    <button
+                        class="nav-item hr-only"
+                        onclick="showAttendanceRecords()">
+
+                        📊 Attendance Records
+
+                    </button>
+
+
+                    <button
+                        class="nav-item hr-only"
+                        onclick="showLeaveApprovals()">
+
+                        ✅ Leave Approvals
+
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        onclick="logout()">
+
+                        🚪 Logout
+
+                    </button>
+
+                </nav>
+
+            </aside>
+
+
+            <!-- ================= MAIN ================= -->
+
+            <main class="main-content">
+
+
+                <!-- TOP BAR -->
+
+                <header class="topbar">
+
+                    <div>
+
+                        <h2 id="dashboardTitle">
+                            Dashboard
+                        </h2>
+
+                        <p id="welcomeText">
+                            Welcome to Dayflow.
+                        </p>
+
+                    </div>
+
+
+                    <div class="user-profile">
+
+                        <div
+                            class="avatar"
+                            id="userAvatar">
+
+                            U
+
+                        </div>
+
+
+                        <div>
+
+                            <strong id="loggedUser">
+                                User
+                            </strong>
+
+                            <small id="userRole">
+                                User
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </header>
+
+
+                <!-- ================================================= -->
+                <!-- EMPLOYEE DASHBOARD -->
+                <!-- ================================================= -->
+
+                <section
+                    id="employeeDashboard"
+                    class="dashboard-page hidden">
+
+
+                    <div class="section-title">
+
+                        <h3>
+                            Quick Access
+                        </h3>
+
+                    </div>
+
+
+                    <div class="cards">
+
+
+                        <!-- PROFILE -->
+
+                        <div class="card">
+
+                            <div class="card-icon">
+                                👤
+                            </div>
+
+                            <h3>
+                                Profile
+                            </h3>
+
+                            <p>
+                                View and manage your
+                                personal details.
+                            </p>
+
+                            <button onclick="showProfile()">
+                                View Profile
+                            </button>
+
+                        </div>
+
+
+                        <!-- ATTENDANCE -->
+
+                        <div class="card">
+
+                            <div class="card-icon">
+                                📅
+                            </div>
+
+                            <h3>
+                                Attendance
+                            </h3>
+
+                            <p>
+                                View your attendance records.
+                            </p>
+
+                            <button onclick="showAttendance()">
+                                View Attendance
+                            </button>
+
+                        </div>
+
+
+                        <!-- LEAVE -->
+
+                        <div class="card">
+
+                            <div class="card-icon">
+                                📝
+                            </div>
+
+                            <h3>
+                                Leave Requests
+                            </h3>
+
+                            <p>
+                                Apply for leave and track
+                                your requests.
+                            </p>
+
+                            <button onclick="showLeaveRequests()">
+                                Manage Leave
+                            </button>
+
+                        </div>
+
+
+                        <!-- LOGOUT -->
+
+                        <div class="card">
+
+                            <div class="card-icon">
+                                🚪
+                            </div>
+
+                            <h3>
+                                Logout
+                            </h3>
+
+                            <p>
+                                Securely sign out of
+                                your account.
+                            </p>
+
+                            <button onclick="logout()">
+                                Logout
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RECENT ACTIVITY -->
+
+                    <div class="content-section">
+
+                        <div class="section-header">
+
+                            <h3>
+                                Recent Activity
+                            </h3>
+
+                        </div>
+
+
+                        <div id="employeeActivity">
+
+                            <div class="empty-state">
+
+                                <div class="empty-icon">
+                                    📋
+                                </div>
+
+                                <h3>
+                                    No recent activity
+                                </h3>
+
+                                <p>
+                                    Your recent activities
+                                    will appear here.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ALERTS -->
+
+                    <div class="content-section">
+
+                        <div class="section-header">
+
+                            <h3>
+                                Alerts
+                            </h3>
+
+                        </div>
+
+
+                        <div id="employeeAlerts">
+
+                            <div class="empty-state">
+
+                                <div class="empty-icon">
+                                    🔔
+                                </div>
+
+                                <h3>
+                                    No alerts
+                                </h3>
+
+                                <p>
+                                    You don't have any alerts
+                                    at the moment.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================================================= -->
+                <!-- HR DASHBOARD -->
+                <!-- ================================================= -->
+
+                <section
+                    id="hrDashboard"
+                    class="dashboard-page hidden">
+
+
+                    <div class="section-title">
+
+                        <h3>
+                            HR Overview
+                        </h3>
+
+                    </div>
+
+
+                    <!-- STATISTICS -->
+
+                    <div class="stats">
+
+
+                        <div class="stat-card">
+
+                            <span>
+                                👥
+                            </span>
+
+                            <div>
+
+                                <p>
+                                    Total Employees
+                                </p>
+
+                                <h2 id="totalEmployees">
+                                    0
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <span>
+                                ✓
+                            </span>
+
+                            <div>
+
+                                <p>
+                                    Present Today
+                                </p>
+
+                                <h2 id="presentCount">
+                                    0
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <span>
+                                📝
+                            </span>
+
+                            <div>
+
+                                <p>
+                                    Pending Leaves
+                                </p>
+
+                                <h2 id="pendingLeaveCount">
+                                    0
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <span>
+                                ⚠
+                            </span>
+
+                            <div>
+
+                                <p>
+                                    Absent Today
+                                </p>
+
+                                <h2 id="absentCount">
+                                    0
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMPLOYEE LIST -->
+
+                    <div class="content-section">
+
+                        <div class="section-header">
+
+                            <h3>
+                                Employee List
+                            </h3>
+
+                            <input
+                                type="text"
+                                id="employeeSearch"
+                                placeholder="Search employee..."
+                                onkeyup="searchEmployees()"
+                            >
+
+                        </div>
+
+
+                        <div id="employeeList">
+
+                            <div class="empty-state">
+
+                                <div class="empty-icon">
+                                    👥
+                                </div>
+
+                                <h3>
+                                    No employees registered
+                                </h3>
+
+                                <p>
+                                    Registered employees will
+                                    appear here.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SELECTED EMPLOYEE -->
+
+                    <div
+                        id="selectedEmployeeSection"
+                        class="content-section hidden">
+
+                        <div class="section-header">
+
+                            <h3>
+                                Employee Details
+                            </h3>
+
+                        </div>
+
+
+                        <div id="selectedEmployee">
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ATTENDANCE RECORDS -->
+
+                    <div class="content-section">
+
+                        <div class="section-header">
+
+                            <h3>
+                                Attendance Records
+                            </h3>
+
+                        </div>
+
+
+                        <div id="hrAttendanceRecords">
+
+                            <div class="empty-state">
+
+                                <div class="empty-icon">
+                                    📊
+                                </div>
+
+                                <h3>
+                                    No attendance records
+                                </h3>
+
+                                <p>
+                                    Attendance records will
+                                    appear here when available.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LEAVE APPROVALS -->
+
+                    <div class="content-section">
+
+                        <div class="section-header">
+
+                            <h3>
+                                Leave Approvals
+                            </h3>
+
+                        </div>
+
+
+                        <div id="hrLeaveApprovals">
+
+                            <div class="empty-state">
+
+                                <div class="empty-icon">
+                                    📝
+                                </div>
+
+                                <h3>
+                                    No leave requests
+                                </h3>
+
+                                <p>
+                                    Employee leave requests
+                                    will appear here.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================================================= -->
+                <!-- PROFILE PAGE -->
+                <!-- ================================================= -->
+
+                <section
+                    id="profilePage"
+                    class="dashboard-page hidden">
+
+                    <div class="content-section">
+
+                        <div class="section-header">
+
+                            <h3>
+                                My Profile
+                            </h3>
+
+                        </div>
+
+
+                        <div class="profile-details">
+
+                            <div class="profile-row">
+
+                                <strong>
+                                    Employee ID
+                                </strong>
+
+                                <span id="profileEmployeeId">
+                                </span>
+
+                            </div>
+
+
+                            <div class="profile-row">
+
+                                <strong>
+                                    Email
+                                </strong>
+
+                                <span id="profileEmail">
+                                </span>
+
+                            </div>
+
+
+                            <div class="profile-row">
+
+                                <strong>
+                                    Role
+                                </strong>
+
+                                <span id="profileRole">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================================================= -->
+                <!-- ATTENDANCE PAGE -->
+                <!-- ================================================= -->
+
+                <section
+                    id="attendancePage"
+                    class="dashboard-page hidden">
+
+                    <div class="content-section">
+
+                        <div class="section-header">
+
+                            <h3>
+                                My Attendance
+                            </h3>
+
+                        </div>
+
+
+                        <div class="empty-state">
+
+                            <div class="empty-icon">
+                                📅
+                            </div>
+
+                            <h3>
+                                No attendance records
+                            </h3>
+
+                            <p>
+                                Your attendance records
+                                will appear here.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================================================= -->
+                <!-- LEAVE PAGE -->
+                <!-- ================================================= -->
+
+                <section
+                    id="leavePage"
+                    class="dashboard-page hidden">
+
+                    <div class="content-section">
+
+                        <div class="section-header">
+
+                            <h3>
+                                Leave Requests
+                            </h3>
+
+                        </div>
+
+
+                        <div class="empty-state">
+
+                            <div class="empty-icon">
+                                📝
+                            </div>
+
+                            <h3>
+                                No leave requests
+                            </h3>
+
+                            <p>
+                                Your leave requests
+                                will appear here.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </main>
 
         </div>
 
@@ -207,4 +997,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>

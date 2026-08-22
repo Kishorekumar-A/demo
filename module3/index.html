@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dayflow - HRMS</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LEFT SIDE -->
+        <div class="welcome-section">
+
+            <h1>Dayflow</h1>
+
+            <p class="tagline">
+                Every workday, perfectly aligned.
+            </p>
+
+            <p class="description">
+                A simple Human Resource Management System
+                for employees and HR officers.
+            </p>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="auth-section">
+
+            <!-- LOGIN -->
+            <div id="loginBox" class="auth-box">
+
+                <h2>Welcome Back</h2>
+
+                <p class="subtitle">
+                    Sign in to your Dayflow account
+                </p>
+
+                <form id="loginForm">
+
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <p id="loginError" class="error"></p>
+
+                    <button type="submit">
+                        Sign In
+                    </button>
+
+                </form>
+
+                <p class="switch-text">
+                    Don't have an account?
+                    <span onclick="showSignup()">Sign Up</span>
+                </p>
+
+            </div>
+
+
+            <!-- SIGN UP -->
+            <div id="signupBox" class="auth-box hidden">
+
+                <h2>Create Account</h2>
+
+                <p class="subtitle">
+                    Register for Dayflow
+                </p>
+
+                <form id="signupForm">
+
+                    <label>Employee ID</label>
+                    <input
+                        type="text"
+                        id="employeeId"
+                        placeholder="Enter Employee ID"
+                        required
+                    >
+
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        placeholder="Enter email"
+                        required
+                    >
+
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        id="signupPassword"
+                        placeholder="Minimum 8 characters"
+                        required
+                    >
+
+                    <label>Role</label>
+
+                    <select id="role" required>
+
+                        <option value="">
+                            Select Role
+                        </option>
+
+                        <option value="Employee">
+                            Employee
+                        </option>
+
+                        <option value="HR">
+                            HR Officer
+                        </option>
+
+                    </select>
+
+                    <p class="password-rule">
+                        Password must contain at least 8 characters,
+                        one uppercase letter and one number.
+                    </p>
+
+                    <p id="signupError" class="error"></p>
+
+                    <button type="submit">
+                        Sign Up
+                    </button>
+
+                </form>
+
+                <p class="switch-text">
+                    Already have an account?
+                    <span onclick="showLogin()">Sign In</span>
+                </p>
+
+            </div>
+
+
+            <!-- VERIFICATION -->
+            <div id="verificationBox" class="auth-box hidden">
+
+                <h2>Verify Your Email</h2>
+
+                <p class="subtitle">
+                    We've sent a verification link to
+                </p>
+
+                <p id="verificationEmail" class="email-display"></p>
+
+                <p>
+                    Please verify your email before signing in.
+                </p>
+
+                <button onclick="verifyEmail()">
+                    Verify Email
+                </button>
+
+            </div>
+
+
+            <!-- DASHBOARD -->
+            <div id="dashboardBox" class="auth-box hidden">
+
+                <h2 id="dashboardTitle">
+                    Dashboard
+                </h2>
+
+                <p id="dashboardMessage"></p>
+
+                <div class="dashboard-card">
+
+                    <h3>Authentication Successful</h3>
+
+                    <p>
+                        You have successfully signed in to Dayflow.
+                    </p>
+
+                    <p id="userDetails"></p>
+
+                </div>
+
+                <button onclick="logout()">
+                    Logout
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
